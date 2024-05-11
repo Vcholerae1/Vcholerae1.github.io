@@ -13,7 +13,7 @@
 
 
 
-<title>linux常用命令 &amp; git常用指令 | Hexo</title>
+<title>全球地壳深度绘图 | Hexo</title>
 
 
 
@@ -123,76 +123,11 @@
                 <div class="container">
     
     
-        <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
-    </div>
-</div>
-
-<script>
-    var tocbot_timer;
-    var DEPTH_MAX = 6; // 为 6 时展开所有
-    var tocbot_default_config = {
-        tocSelector: '.tocbot-list',
-        contentSelector: '.post-content',
-        headingSelector: 'h1, h2, h3, h4, h5',
-        orderedList: false,
-        scrollSmooth: true,
-        onClick: extend_click,
-    };
-
-    function extend_click() {
-        clearTimeout(tocbot_timer);
-        tocbot_timer = setTimeout(function() {
-            tocbot.refresh(obj_merge(tocbot_default_config, {
-                hasInnerContainers: true
-            }));
-        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
-    }
-
-    document.ready(function() {
-        tocbot.init(obj_merge(tocbot_default_config, {
-            collapseDepth: 1
-        }));
-    });
-
-    function expand_toc() {
-        var b = document.querySelector('.tocbot-toc-expand');
-        var expanded = b.getAttribute('data-expanded');
-        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
-        tocbot.refresh(obj_merge(tocbot_default_config, {
-            collapseDepth: expanded ? 1 : DEPTH_MAX
-        }));
-        b.innerText = expanded ? 'Expand all' : 'Collapse all';
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-    function obj_merge(target, source) {
-        for (var item in source) {
-            if (source.hasOwnProperty(item)) {
-                target[item] = source[item];
-            }
-        }
-        return target;
-    }
-</script>
-    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">linux常用命令 &amp; git常用指令</h1>
+            <h1 class="post-title">全球地壳深度绘图</h1>
             
                 <div class="post-meta">
                     
@@ -201,14 +136,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">May 10, 2024&nbsp;&nbsp;23:54:53</a>
+                        Date: <a href="#">May 11, 2024&nbsp;&nbsp;19:53:27</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/linux/">linux</a>
+                                <a href="/categories/julia/">julia</a>
                             
                         </span>
                     
@@ -217,10 +152,11 @@
         </header>
 
         <div class="post-content">
-            <h1 id="一些linux常用命令"><a href="#一些linux常用命令" class="headerlink" title="一些linux常用命令"></a>一些linux常用命令</h1><p>(1) ctrl c: 取消命令，并且换行<br>(2) ctrl u: 清空本行命令<br>(3) tab键：可以补全命令和文件名，如果补全不了快速按两下tab键，可以显示备选选项<br>(4) ls: 列出当前目录下所有文件，蓝色的是文件夹，白色的是普通文件，绿色的是可执行文件<br>(5) pwd: 显示当前路径<br>(6) cd XXX: 进入XXX目录下,<br>cd .. 返回上层目录<br>cd &#x2F;：切换到系统根目录<br>cd ~：切换到用户主目录<br>cd -： 切换到上一个操作所在目录<br>(7) cp XXX YYY: 将XXX文件复制成YYY，XXX和YYY可以是一个路径，比如..&#x2F;dir_c&#x2F;a.txt，表示上层目录下的dir_c文件夹下的文件a.txt<br>(8) mkdir XXX: 创建目录XXX<br>(9) rm XXX: 删除普通文件;  rm XXX -r: 删除文件夹<br>(10) mv XXX YYY: 将XXX文件移动到YYY，和cp命令一样，XXX和YYY可以是一个路径；重命名也是用这个命令<br>(11) touch XXX: 创建一个文件<br>(12) cat XXX: 展示文件XXX中的内容<br>(13) 复制文本 Ctrl + insert<br>(14) 粘贴文本 Shift + insert </p>
-<h1 id="tmux-的使用"><a href="#tmux-的使用" class="headerlink" title="tmux 的使用"></a>tmux 的使用</h1><p>tmux 是一个在类unix系统下经常使用的终端复用工具</p>
-<h1 id="vim的使用"><a href="#vim的使用" class="headerlink" title="vim的使用"></a>vim的使用</h1><p>vim是常用的文本编辑器<br>常用命令<br>（1） <code>i</code>进入编辑模式</p>
-<h1 id="git-基本知识及指令"><a href="#git-基本知识及指令" class="headerlink" title="git 基本知识及指令"></a>git 基本知识及指令</h1><p>git 是一个流行的代码版本管理分布式框架</p>
+            <p>可以利用julia的GeoMakie库绘制出全球地壳深度的分布图<br>代码架构类似于</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> GeoMakie,CairoMakie</span><br><span class="line"></span><br><span class="line">lons = -<span class="number">179.5</span>:<span class="number">179.5</span></span><br><span class="line">lats = -<span class="number">89.5</span>:<span class="number">89.5</span></span><br><span class="line"></span><br><span class="line">fig = Figure()</span><br><span class="line">ga = GeoAxis(</span><br><span class="line">    fig[<span class="number">1</span>, <span class="number">1</span>];</span><br><span class="line">    dest = <span class="string">&quot;+proj=wintri&quot;</span>, </span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">lines!(ga,GeoMakie.coastlines())</span><br></pre></td></tr></table></figure>
+<p>成图效果如下<br><img src="/image.png" alt="alt text"><br>利用地壳深度的数据，利用<code>heatmap</code>函数可以成图</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">heatmap!(ga,lons,lats,matrix_data,colormap = :diverging_bwr_40_95_c42_n256)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="/image-1.png" alt="alt text"></p>
 
         </div>
 
@@ -235,7 +171,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://vcholerae1.github.io/2024/05/10/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">http://vcholerae1.github.io/2024/05/10/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</a></span>
+                        <span><a href="http://vcholerae1.github.io/2024/05/11/%E5%85%A8%E7%90%83%E5%9C%B0%E5%A3%B3%E6%B7%B1%E5%BA%A6%E7%BB%98%E5%9B%BE/">http://vcholerae1.github.io/2024/05/11/%E5%85%A8%E7%90%83%E5%9C%B0%E5%A3%B3%E6%B7%B1%E5%BA%A6%E7%BB%98%E5%9B%BE/</a></span>
                     </p>
                 
                 
@@ -259,7 +195,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/linux-git/"># linux & git</a>
+                        <a href="/tags/Makie/"># Makie</a>
                     
                         
                 </span>
@@ -272,10 +208,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2024/05/11/%E5%85%A8%E7%90%83%E5%9C%B0%E5%A3%B3%E6%B7%B1%E5%BA%A6%E7%BB%98%E5%9B%BE/">全球地壳深度绘图</a>
             
-            
-            <a class="next" rel="next" href="/2024/05/10/hello-world/">Hello World</a>
+            <a class="next" rel="next" href="/2024/05/10/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">linux常用命令 & git常用指令</a>
             
         </section>
 
