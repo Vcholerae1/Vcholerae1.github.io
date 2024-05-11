@@ -154,9 +154,9 @@
         <div class="post-content">
             <p>可以利用julia的GeoMakie库绘制出全球地壳深度的分布图<br>代码架构类似于</p>
 <figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> GeoMakie,CairoMakie</span><br><span class="line"></span><br><span class="line">lons = -<span class="number">179.5</span>:<span class="number">179.5</span></span><br><span class="line">lats = -<span class="number">89.5</span>:<span class="number">89.5</span></span><br><span class="line"></span><br><span class="line">fig = Figure()</span><br><span class="line">ga = GeoAxis(</span><br><span class="line">    fig[<span class="number">1</span>, <span class="number">1</span>];</span><br><span class="line">    dest = <span class="string">&quot;+proj=wintri&quot;</span>, <span class="comment"># 这里指定成图的投影方式</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">lines!(ga,GeoMakie.coastlines())</span><br></pre></td></tr></table></figure>
-<p>成图效果如下<br><img src="/image.png" alt="alt text"><br>利用地壳深度的数据，利用<code>heatmap</code>函数可以成图</p>
+<p>成图效果如下<br><img src="/.io//image.png" alt="alt text1"><br>利用地壳深度的数据，利用<code>heatmap</code>函数可以成图</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">heatmap!(ga,lons,lats,matrix_data,colormap = :diverging_bwr_40_95_c42_n256)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="/image-1.png" alt="alt text"></p>
+<p><img src="/.io//image-1.png" alt="alt text"></p>
 
         </div>
 
@@ -171,7 +171,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://vcholerae1.github.io/2024/05/11/%E5%85%A8%E7%90%83%E5%9C%B0%E5%A3%B3%E6%B7%B1%E5%BA%A6%E7%BB%98%E5%9B%BE/">http://vcholerae1.github.io/2024/05/11/%E5%85%A8%E7%90%83%E5%9C%B0%E5%A3%B3%E6%B7%B1%E5%BA%A6%E7%BB%98%E5%9B%BE/</a></span>
+                        <span><a href="http://vcholerae1.github.io/2024/05/11/%E5%9C%B0%E5%A3%B3%E5%8E%9A%E5%BA%A6%E6%88%90%E5%9B%BE/">http://vcholerae1.github.io/2024/05/11/%E5%9C%B0%E5%A3%B3%E5%8E%9A%E5%BA%A6%E6%88%90%E5%9B%BE/</a></span>
                     </p>
                 
                 
