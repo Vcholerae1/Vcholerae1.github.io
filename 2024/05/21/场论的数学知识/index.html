@@ -13,7 +13,7 @@
 
 
 
-<title>iverilog | Hexo</title>
+<title>场论的数学知识 | Hexo</title>
 
 
 
@@ -190,7 +190,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">iverilog</h1>
+            <h1 class="post-title">场论的数学知识</h1>
             
                 <div class="post-meta">
                     
@@ -199,7 +199,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">May 20, 2024&nbsp;&nbsp;12:28:17</a>
+                        Date: <a href="#">May 21, 2024&nbsp;&nbsp;10:37:59</a>
                         </span>
                     
                     
@@ -208,17 +208,10 @@
         </header>
 
         <div class="post-content">
-            <h2 id="iverilog-&#x7684;&#x4F7F;&#x7528;">iverilog &#x7684;&#x4F7F;&#x7528;</h2>
-<p>&#x8FD9;&#x7BC7;&#x7B14;&#x8BB0;&#x4ECB;&#x7ECD;&#x4E86;linux&#x4E0B;verilog&#x7F16;&#x8BD1;&#x5DE5;&#x5177;iverilog&#x7684;&#x57FA;&#x7840;&#x4F7F;&#x7528;&#x3002;</p>
-<h3 id="&#x7F16;&#x8BD1;verilog&#x6587;&#x4EF6;">&#x7F16;&#x8BD1;Verilog&#x6587;&#x4EF6;</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iverilog -o output_file file1.v file2.v ...</span><br></pre></td></tr></table></figure>
-<p>-o output_file: &#x6307;&#x5B9A;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x540D;&#x3002;<br>
-file1.v file2.v ...: &#x9700;&#x8981;&#x7F16;&#x8BD1;&#x7684; Verilog &#x6E90;&#x6587;&#x4EF6;&#x3002;</p>
-<h3 id="&#x8FD0;&#x884C;&#x4EFF;&#x771F;">&#x8FD0;&#x884C;&#x4EFF;&#x771F;</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vvp output_file</span><br></pre></td></tr></table></figure>
-<p>output_file : iverilog &#x751F;&#x6210;&#x7684;&#x8F93;&#x51FA;&#x6587;&#x4EF6;</p>
-<h3 id="&#x751F;&#x6210;&#x6CE2;&#x5F62;">&#x751F;&#x6210;&#x6CE2;&#x5F62;</h3>
-<p>&#x5728;testbench&#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;&#x751F;&#x6210;VCD&#x6587;&#x4EF6;&#x7684;&#x4EE3;&#x7801; <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">initial</span> <span class="keyword">begin</span></span><br><span class="line">    <span class="built_in">$dumpfile</span>(<span class="string">&quot;dump.vcd&quot;</span>);</span><br><span class="line">    <span class="built_in">$dumpvars</span>(<span class="number">0</span>, top_module);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure> &#x7F16;&#x8BD1;&#x5E76;&#x8FD0;&#x884C;&#x4EFF;&#x771F;&#x751F;&#x6210;<code>dump.vcd</code> &#x6587;&#x4EF6;&#x540E;&#xFF0C;&#x4F7F;&#x7528; <code>gtkwave</code> &#x67E5;&#x770B;&#x6CE2;&#x5F62;&#xFF1A; <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gtkwave dump.vcd</span><br></pre></td></tr></table></figure></p>
+            <h1 id="&#x573A;&#x8BBA;&#x7684;&#x6570;&#x5B66;&#x77E5;&#x8BC6;">&#x573A;&#x8BBA;&#x7684;&#x6570;&#x5B66;&#x77E5;&#x8BC6;</h1>
+<p>&#x63A8;&#x5BFC;&#x516C;&#x5F0F;&#x7684;&#x65F6;&#x5019;&#x53D1;&#x73B0;&#x81EA;&#x5DF1;&#x5BF9;&#x573A;&#x8BBA;&#x7684;&#x4E00;&#x4E9B;&#x516C;&#x5F0F;&#x5DF2;&#x7ECF;&#x53D8;&#x5F97;&#x76F8;&#x5F53;&#x964C;&#x751F;&#x4E86;&#xFF0C;&#x5728;&#x672C;&#x7BC7;&#x535A;&#x5BA2;&#x4E2D;&#x5BF9;&#x4E00;&#x4E9B;&#x5E38;&#x7528;&#x7684;&#x6570;&#x5B66;&#x77E5;&#x8BC6;&#x8FDB;&#x884C;&#x68B3;&#x7406;&#x3002; ## &#x6563;&#x5EA6;&#x4E0E;&#x65CB;&#x5EA6; ### &#x6563;&#x5EA6; &#x8BBE;D&#x662F;<span class="math inline">\(\mathbf{R}^3\)</span>&#x4E0A;&#x7684;&#x4E00;&#x4E2A;&#x533A;&#x57DF;&#xFF0C;<span class="math inline">\(\mathbf{a}(x,y,z) = P(x,y,z)\mathbf{i} + Q(x,y,z)\mathbf{j} + R(x,y,z)\mathbf{k}\)</span> &#x662F;&#x5B9A;&#x4E49;&#x5728;D&#x4E0A;&#x7684;&#x5411;&#x91CF;&#x503C;&#x51FD;&#x6570;&#xFF0C;&#x79F0; $ $ &#x662F;&#x5B9A;&#x4E49;&#x5728;D&#x4E0A;&#x7684;&#x4E00;&#x4E2A;&#x5411;&#x91CF;&#x573A;&#xFF0C;&#x53C8;&#x8BBE;P&#xFF0C;Q&#xFF0C;R&#x6709;&#x8FDE;&#x7EED;&#x7684;&#x504F;&#x5BFC;&#x6570;&#xFF0C;&#x8BB0; <span class="math display">\[\nabla \cdot \mathbf{a} = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}\]</span></p>
+<p>&#x4E3A;&#x5411;&#x91CF;&#x573A; <span class="math inline">\(\mathbf{a}\)</span> &#x7684;&#x6563;&#x5EA6;&#xFF0C;&#x4ED6;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x91CF;&#x3002;<br>
+&#x5229;&#x7528;&#x6563;&#x5EA6;&#x7684;&#x8BB0;&#x53F7;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;Guass&#x516C;&#x5F0F;&#x548C;Green&#x516C;&#x5F0F;&#x5206;&#x522B;&#x7B80;&#x5199;&#x4E3A; <span class="math display">\[\iiint_D \nabla \cdot \mathbf{a} \; \mathbf{d}x\mathbf{d}y\mathbf{d}z = \oiint_{\partial D}P \mathbf{d}y\mathbf{d}z + Q \mathbf{d}x\mathbf{d}z + R\mathbf{d}x\mathbf{d}y\\]</span> <span class="math display">\[\iiint_D\nabla \cdot \mathbf{a} \; \mathbf{d}x\mathbf{d}y\mathbf{d}z = \oiint_{\partial D}\mathbf{a} \cdot \mathbf{n} \; \mathbf{d} S \]</span></p>
 
         </div>
 
@@ -233,7 +226,7 @@ file1.v file2.v ...: &#x9700;&#x8981;&#x7F16;&#x8BD1;&#x7684; Verilog &#x6E90;&#
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://vcholerae1.github.io/2024/05/20/iverilog/">http://vcholerae1.github.io/2024/05/20/iverilog/</a></span>
+                        <span><a href="http://vcholerae1.github.io/2024/05/21/%E5%9C%BA%E8%AE%BA%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/">http://vcholerae1.github.io/2024/05/21/%E5%9C%BA%E8%AE%BA%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/</a></span>
                     </p>
                 
                 
@@ -257,7 +250,7 @@ file1.v file2.v ...: &#x9700;&#x8981;&#x7F16;&#x8BD1;&#x7684; Verilog &#x6E90;&#
                 <span class="tag">
                     
                     
-                        <a href="/tags/verilog/"># verilog</a>
+                        <a href="/tags/field/"># field</a>
                     
                         
                 </span>
@@ -270,10 +263,8 @@ file1.v file2.v ...: &#x9700;&#x8981;&#x7F16;&#x8BD1;&#x7684; Verilog &#x6E90;&#
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2024/05/21/%E5%9C%BA%E8%AE%BA%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/">场论的数学知识</a>
             
-            
-            <a class="next" rel="next" href="/2024/05/20/raytracing/">raytracing</a>
+            <a class="next" rel="next" href="/2024/05/20/iverilog/">iverilog</a>
             
         </section>
 
