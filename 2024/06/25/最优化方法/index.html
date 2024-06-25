@@ -160,6 +160,71 @@
                 <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
 
     
     <article class="post-wrap">
@@ -182,7 +247,16 @@
         </header>
 
         <div class="post-content">
-            
+            <h1 id="chapter-1">Chapter 1</h1>
+<h2 id="&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6CD5;">&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6CD5;</h2>
+<p>&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x6C42;&#x89E3;&#x7684;&#x65E0;&#x7EA6;&#x675F;&#x6700;&#x4F18;&#x5316;&#x95EE;&#x9898;&#x5982;&#x4E0B; <span class="math display">\[\min_{x \in \mathbb{R}^n }f(x)\]</span>
+&#x5982;&#x679C;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x901A;&#x8FC7;&#x8FED;&#x4EE3;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5C06;&#x521D;&#x59CB;&#x70B9;<span class="math inline">\(x_0\)</span>&#x9010;&#x6B65;&#x8FED;&#x4EE3;&#x5230;&#x6700;&#x4F18;&#x89E3;&#x6240;&#x5728;&#x7684;<span class="math inline">\(x^*\)</span>,&#x6211;&#x4EEC;&#x4F1A;&#x8003;&#x8651;&#x8FD9;&#x6837;&#x7684;&#x4E00;&#x4E2A;&#x641C;&#x7D22;&#x70B9;&#x8FED;&#x4EE3;&#x8FC7;&#x7A0B;&#xFF1A;
+<span class="math display">\[ x_{t+1} = x_t + \gamma d_t\]</span>
+&#x5176;&#x4E2D;<span class="math inline">\(d_t\)</span>&#x662F;&#x6211;&#x4EEC;&#x6839;&#x636E;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x5728;<span class="math inline">\(x_t\)</span>&#x7684;&#x60C5;&#x51B5;&#x786E;&#x5B9A;&#x7684;&#x641C;&#x7D22;&#x65B9;&#x5411;&#xFF0C;&#x800C;<span class="math inline">\(\gamma_t\)</span>&#x5219;&#x79F0;&#x4E3A;&#x8FED;&#x4EE3;&#x70B9;<span class="math inline">\(x_t\)</span>&#x6CBF;&#x641C;&#x7D22;&#x65B9;&#x5411;&#x7684;&#x6B65;&#x957F;&#x3002;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5BFB;&#x6C42;&#x8FD9;&#x6837;&#x4E00;&#x79CD;&#x7B97;&#x6CD5;&#xFF0C;&#x5728;&#x5DF2;&#x77E5;&#x51FD;&#x6570;<span class="math inline">\(f\)</span>&#x548C;&#x8FED;&#x4EE3;&#x70B9;<span class="math inline">\(x_t\)</span>&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x80FD;&#x591F;&#x7B97;&#x51FA;&#x641C;&#x7D22;&#x65B9;&#x5411;<span class="math inline">\(d_t\)</span>&#xFF0C;&#x4F7F;&#x5F97;<span class="math inline">\(x_t\)</span>&#x5728;&#x8FD9;&#x4E2A;&#x641C;&#x7D22;&#x65B9;&#x5411;&#x4E0B;&#x5F97;&#x5230;&#x70B9;&#x80FD;&#x591F;&#x4F7F;&#x5F97;<span class="math inline">\(f\)</span>&#x53D8;&#x5C0F;&#xFF0C;&#x5373;&#xFF1A; <span class="math display">\[f(x_{t+1}) &lt; f(x_t)\]</span>
+&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6CD5;&#x5E0C;&#x671B;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x5728;&#x8BE5;&#x70B9;&#x4E0B;&#x964D;&#x6700;&#x5FEB;&#x7684;&#x65B9;&#x5411;&#x3002;&#x5982;&#x679C;&#x51FD;&#x6570;&#x662F;&#x4E00;&#x9636;&#x53EF;&#x5BFC;&#x7684;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5728;&#x67D0;&#x4E00;&#x70B9;&#x4E0B;&#x964D;&#x6700;&#x5FEB;&#x7684;&#x65B9;&#x5411;&#x662F;&#x8BE5;&#x70B9;&#x7684;&#x68AF;&#x5EA6;&#x65B9;&#x5411;&#x3002;<br>
+&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x7684;&#x8BC1;&#x660E;&#xFF1A;<br>
+&#x8BBE;&#x76EE;&#x6807;&#x51FD;&#x6570;<span class="math inline">\(f\)</span>&#x8FDE;&#x7EED;&#x53EF;&#x5FAE;&#xFF0C;&#x5C06;<span class="math inline">\(f\)</span>&#x5728;<span class="math inline">\(x_t\)</span>&#x5904;Taylor&#x5C55;&#x5F00;&#xFF1A; <span class="math display">\[ f(x) = f(x_t) + \nabla f(x_t)^T(x - x_T) +
+o(\Vert x - x_t \Vert) \]</span></p>
 
         </div>
 
