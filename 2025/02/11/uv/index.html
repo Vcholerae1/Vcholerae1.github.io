@@ -13,7 +13,7 @@
 
 
 
-<title>julia | Hexo</title>
+<title>uv | Hexo</title>
 
 
 
@@ -192,7 +192,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">julia</h1>
+            <h1 class="post-title">uv</h1>
             
                 <div class="post-meta">
                     
@@ -201,23 +201,45 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">二月 10, 2025&nbsp;&nbsp;22:12:38</a>
+                        Date: <a href="#">二月 11, 2025&nbsp;&nbsp;8:52:28</a>
                         </span>
                     
-                    
-                        <span class="post-category">
-                    Category:
-                            
-                                <a href="/categories/programming-language/">programming language</a>
-                            
-                        </span>
                     
                 </div>
             
         </header>
 
         <div class="post-content">
-            <h1 id="julia-的优点"><a href="#julia-的优点" class="headerlink" title="julia 的优点"></a>julia 的优点</h1>
+            <h1 id="uv"><a href="#uv" class="headerlink" title="uv"></a>uv</h1><p>uv 是一个用rust编写的python版本管理器，优点主要是下载依赖包速度非常快。</p>
+<h2 id="下载安装-uv"><a href="#下载安装-uv" class="headerlink" title="下载安装 uv"></a>下载安装 uv</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">On macOS and Linux.</span></span><br><span class="line">curl -LsSf https://astral.sh/uv/install.sh | sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">On Windows.</span></span><br><span class="line">powershell -ExecutionPolicy ByPass -c &quot;irm https://astral.sh/uv/install.ps1 | iex&quot;</span><br></pre></td></tr></table></figure>
+
+<p>uv自动更新</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv self update</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>首先使用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv init</span><br></pre></td></tr></table></figure>
+<p>初始化一个环境</p>
+<p>然后可以使用uv安装多个需要的python版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv python install python 3.10 3.11 3.12</span><br></pre></td></tr></table></figure>
+
+<p>在工作目录里固定python版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv python pin 3.11</span><br></pre></td></tr></table></figure>
+
+<p>创建虚拟环境</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv venv</span><br></pre></td></tr></table></figure>
+
+<p>进入虚拟环境</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">linux</span></span><br><span class="line">source .venv/bin/activate</span><br></pre></td></tr></table></figure>
+
+<p>添加依赖环境</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv add numpy scipy</span><br></pre></td></tr></table></figure>
+
+<p>当然也可以复用原来的命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv pip install -r requirement.txt</span><br></pre></td></tr></table></figure>
+<p>这样会把原来的依赖更新到pyproject.toml中</p>
+<p>运行脚本使用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv run example.py # 示例</span><br></pre></td></tr></table></figure>
         </div>
 
         
@@ -231,7 +253,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://vcholerae1.github.io/2025/02/10/julia/">http://vcholerae1.github.io/2025/02/10/julia/</a></span>
+                        <span><a href="http://vcholerae1.github.io/2025/02/11/uv/">http://vcholerae1.github.io/2025/02/11/uv/</a></span>
                     </p>
                 
                 
@@ -245,7 +267,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/julia/"># julia</a>
+                        <a href="/tags/python/"># python</a>
                     
                         
                 </span>
@@ -258,10 +280,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2025/02/11/uv/">uv</a>
             
-            
-            <a class="next" rel="next" href="/2025/02/10/linux/">linux</a>
+            <a class="next" rel="next" href="/2025/02/10/julia/">julia</a>
             
         </section>
 
